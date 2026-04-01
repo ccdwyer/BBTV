@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "bbtv",
+  "project_id": "381502a8-ae3b-404a-9324-d4ddb85427a8"
+}
