@@ -10,6 +10,10 @@
 
 ---
 
+<p align="center">
+  <img src="assets/bbtv-idle.png" alt="BBTV idle screen" width="600" />
+</p>
+
 BBTV lets your kids pick what to watch by scanning QR codes from a physical picture book. A USB barcode scanner reads the code, and VLC plays the video fullscreen on your TV. You control the library, the time limits, and print the books.
 
 ## How It Works
