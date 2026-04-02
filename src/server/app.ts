@@ -408,10 +408,19 @@ app.get("/api/special-codes", (c) => {
 
 app.get("/health", (c) => c.json({ status: "ok" }));
 
-// Serve data dir files (logo, etc)
+// Serve data dir files
 app.get("/data/*", async (c) => {
   const filePath = c.req.path.replace("/data/", "");
   const fullPath = `${config.dataDir}/${filePath}`;
+  const file = Bun.file(fullPath);
+  if (await file.exists()) return new Response(file);
+  return c.json({ error: "Not found" }, 404);
+});
+
+// Serve assets dir (logo, etc)
+app.get("/assets/*", async (c) => {
+  const filePath = c.req.path.replace("/assets/", "");
+  const fullPath = `${import.meta.dir}/../../assets/${filePath}`;
   const file = Bun.file(fullPath);
   if (await file.exists()) return new Response(file);
   return c.json({ error: "Not found" }, 404);
@@ -731,13 +740,13 @@ function idlePageHtml(): string {
 
   <!-- No child signed in, prompt to scan name card -->
   <div class="screen" id="signin-screen">
-    <img src="/data/bbtv-logo.png" alt="BBTV" class="logo" />
+    <img src="/assets/bbtv-logo.png" alt="BBTV" class="logo" />
     <p class="pulse">Scan your name card to start!</p>
   </div>
 
   <!-- Child signed in, ready to scan media -->
   <div class="screen" id="idle-screen">
-    <img src="/data/bbtv-logo.png" alt="BBTV" class="logo" />
+    <img src="/assets/bbtv-logo.png" alt="BBTV" class="logo" />
     <div class="child-name" id="child-name"></div>
     <p class="pulse">Scan a code to watch!</p>
     <div class="time-info" id="time-info"></div>
@@ -745,7 +754,7 @@ function idlePageHtml(): string {
 
   <!-- No children configured, anyone can watch -->
   <div class="screen active" id="open-screen">
-    <img src="/data/bbtv-logo.png" alt="BBTV" class="logo" />
+    <img src="/assets/bbtv-logo.png" alt="BBTV" class="logo" />
     <p class="pulse">Scan a code to watch!</p>
     <div class="time-info" id="open-time-info"></div>
   </div>

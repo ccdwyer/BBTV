@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="data/bbtv-logo.png" alt="BBTV" width="300" />
+  <img src="assets/bbtv-logo.png" alt="BBTV" width="300" />
 </p>
 
 <h1 align="center">BBTV</h1>
