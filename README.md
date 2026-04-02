@@ -2,8 +2,6 @@
   <img src="assets/bbtv-logo.png" alt="BBTV" width="300" />
 </p>
 
-<h1 align="center">BBTV</h1>
-
 <p align="center">
   A QR code media player for kids. Scan a code from a printed book, watch a video on the TV.
 </p>
