@@ -1,5 +1,10 @@
+node_modules/
+data/
+*.db
+*.db-journal
+.env
+.DS_Store
 
 # Beads / Dolt files (added by bd init)
 .dolt/
-*.db
 .beads-credential-key
